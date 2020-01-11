@@ -1,13 +1,11 @@
 import React from 'react';
 import { FlatList, SafeAreaView } from 'react-native';
-import { useQuery, gql } from '@apollo/client';
 import Error from '../../components/error/error';
 import Spinner from '../../components/spinner/spinner';
 import VehicleCard from '../../components/vehicle/card';
 
 export default function Vehicles(props) {
-    const { loading, error, data, refetch, networkStatus, fetchMore } = useQuery(allVehicles, { variables: { first: 20 } })
-
+    
     if (loading) return <Spinner />
     if (error) return <Error error={error} />
 
@@ -45,30 +43,3 @@ export default function Vehicles(props) {
 }
 
 
-const allVehicles = gql`query AllVehicles($first:Int,$after:String){
-    allVehicles(first:$first,after:$after){
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-      totalCount
-      vehicles {
-        name
-        model
-        vehicleClass
-        manufacturers
-        costInCredits
-        length
-        crew
-        passengers
-        maxAtmospheringSpeed
-        cargoCapacity
-        consumables
-        created
-        edited
-        id
-      }
-    }
-  }`
