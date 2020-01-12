@@ -10,24 +10,27 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontWeight: '500',
-        fontSize: 16, margin: 5
+        fontWeight: '400',
+        fontSize: 22,
+        margin: 5
     },
     modelContainer: {
         backgroundColor: '#a6E099',
         alignItems: 'center',
-        fontSize: 12
+    },
+    model: {
+        fontSize: 18
     },
     detailsContainer: {
         alignItems: 'center'
     },
     detailsSubContainer: {
         flexDirection: 'row',
-        marginBottom:15
+        marginBottom: 15
     },
     details: {
         fontWeight: '500',
-        marginLeft:15
+        marginLeft: 15
     },
     dateContainer: {
         alignSelf: 'flex-end'

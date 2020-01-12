@@ -4,7 +4,8 @@ import {
     FETCHING_VEHICLES_FAILURE,
     FETCHING_MORE_VEHICLES_REQUEST,
     FETCHING_MORE_VEHICLES_SUCCESS,
-    SELECT_VEHICLE
+    SELECT_VEHICLE,
+    ADD_VEHICLE
 } from "../actions/types";
 
 const initialState = {
@@ -30,6 +31,8 @@ export const vehicleReducer = (state = initialState, action) => {
             return { ...state, isFetchingMore: false, vehicles: state.vehicles.concat(action.payload.results), next: action.payload.next }
         case SELECT_VEHICLE:
             return { ...state, selectedVehicle: action.payload }
+        case ADD_VEHICLE:
+            return { ...state, vehicles: [action.payload, ...state.vehicles] }
         default:
             return state
     }

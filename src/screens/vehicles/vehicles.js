@@ -11,7 +11,7 @@ function Vehicles(props) {
 
     useEffect(() => {
         props.fetchVehicles()
-    }, [])
+    },[])
 
     return (
         <SafeAreaView style={styles.container}>
