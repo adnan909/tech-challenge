@@ -2,12 +2,18 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from '../icon/icon'
 import styles from './styles';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectVehicle } from '../../redux/actions/vehicleActions'
 
 const DETAILS_ICON_SIZE = 15;
 
-export default function Card(props) {
+function Card(props) {
     return <TouchableOpacity
-        onPress={() => { props.navigation.navigate('VehicleDetails') }}
+        onPress={() => {
+            props.selectVehicle(props.vehicle)
+            props.navigation.navigate('VehicleDetails')
+        }}
         style={styles.container}>
         <View style={styles.titleContainer}>
             <Text style={styles.title} numberOfLines={1}>{props.vehicle.name}</Text>
@@ -39,4 +45,9 @@ export default function Card(props) {
     </TouchableOpacity>
 }
 
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({ selectVehicle: selectVehicle }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Card)
 

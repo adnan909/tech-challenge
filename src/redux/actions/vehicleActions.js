@@ -3,7 +3,8 @@ import {
     FETCHING_VEHICLES_SUCCESS,
     FETCHING_VEHICLES_FAILURE,
     FETCHING_MORE_VEHICLES_REQUEST,
-    FETCHING_MORE_VEHICLES_SUCCESS
+    FETCHING_MORE_VEHICLES_SUCCESS,
+    SELECT_VEHICLE
 } from "./types";
 
 export const fetchingVehiclesRequest = () => ({ type: FETCHING_VEHICLES_REQUEST })
@@ -50,3 +51,8 @@ export const fetchMoreVehicles = (url) => {
         }
     }
 }
+
+export const selectVehicle = (vehicle) => ({
+    type: SELECT_VEHICLE,
+    payload: vehicle
+})
