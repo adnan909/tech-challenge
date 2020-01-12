@@ -2,5 +2,5 @@ import React from 'react';
 import { ActivityIndicator } from 'react-native';
 
 export default function Spinner() {
-    return <ActivityIndicator />
+    return <ActivityIndicator size="large"/>
 }
